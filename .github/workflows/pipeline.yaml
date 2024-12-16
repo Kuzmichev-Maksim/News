@@ -6,6 +6,25 @@ on:
       - news
 
   pull_request:
-    - news
+    branshes:
+      - news
 
 jobs:
+  checkstyle_project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git clone repo
+        uses: actions/chekout@v2
+
+      - name: Set version Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.12.8'
+      
+      - name: Install dependencies
+        run: 
+          pip install flake8
+
+      - name: Run linter
+        run:
+          flake8 .
