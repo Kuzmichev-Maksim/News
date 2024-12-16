@@ -10,7 +10,7 @@ on:
       - news
 
 jobs:
-  checkstyle_project:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Git clone repo
